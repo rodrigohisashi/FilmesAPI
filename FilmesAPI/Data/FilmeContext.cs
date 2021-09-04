@@ -1,11 +1,22 @@
-﻿using System;
+﻿using FilmesAPI.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace FilmesAPI.Data
 {
-    public class FilmeContext
+    public class FilmeContext : DbContext
     {
+        public FilmeContext(DbContextOptions<FilmeContext> opt) : base (opt)
+        {
+             
+        }
+
+        public DbSet<Filme> Filmes { get; set; }
     }
+
+    // Extensões usadas: EntityFrameworkCore , MySQL.EntityFrameworkCore
+    // Comando utilizado para a conexão com Banco de Dados: Add-Migration CriandoTabelaDeFilme ->  Update-Database
 }
