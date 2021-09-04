@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace FilmesAPI.Data.Dtos
+{
+    public class ReadFilmeDto
+    {
+        [Key]
+        [Required]
+        public int Id { get; internal set; }
+        [Required(ErrorMessage = "O campo título é obrigatório!")]
+        public String Titulo { get; set; }
+        [Required(ErrorMessage = "O campo diretor é obrigatório!")]
+        public String Diretor { get; set; }
+        [StringLength(30, ErrorMessage = "O Genero não pode passar de 30 caracteres")]
+        public String Genero { get; set; }
+        [Range(1, 600, ErrorMessage = "A duração deve ter no mínimo 1 e no máximo 600 minutos!")]
+        public int Duracao { get; set; }
+        public DateTime HoraDaConsulta { get; set; }
+    }
+}
